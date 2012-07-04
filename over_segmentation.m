@@ -9,7 +9,7 @@ function [ segment, pix_in_segm, segm_colors, super_image ] = over_segmentation(
     Iy = imfilter(image_bw, hy, 'replicate');
     Ix = imfilter(image_bw, hx, 'replicate');
     gradmag = sqrt(Ix.^2 + Iy.^2);
-    gradmag = imhmin(gradmag, 0.03);
+    gradmag = imhmin(gradmag, 0.04);
     L=watershed(gradmag);
     %for now we have a segmentation with black border pixels
 
