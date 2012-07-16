@@ -7,7 +7,7 @@ function ri = ComputeRi( p_i, cond_prob, equal_label_trigger)
 %   0 otherwise
     ri=[];
     num_of_neighbors=length(cond_prob);
-    if (equal_label_trigger==1)
+    if (equal_label_trigger==1)%changed to 0. test
         for j=1:num_of_neighbors
             if p_i<cond_prob(j)
                ri=[ri (1/(1-p_i))*(1-(p_i)/cond_prob(j))];

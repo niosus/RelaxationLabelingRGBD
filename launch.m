@@ -1,6 +1,6 @@
-image = imread('test2.ppm');
+image = imread('sheep.ppm');
 % initializing image, prob_image, edges, C for relaxation-labeling function
-figure(1);
+f =figure(1);
 image=im2double(image);
 imshow(image);
 disp('starting');
@@ -19,12 +19,22 @@ prob_labels = make_prob_image(number_of_segments, pix_in_segm);
 imshow(segm2image(image,prob_labels,pix_in_segm));
 
 figure(4);
-max_iter=100
-precision=10^(-5)
+max_iter=40
+precision=10^(-6)
 prob_labeled_segments = relaxation_labeling_from_image(segm_colors,prob_labels, max_iter, edges, comp, precision, weights);
 
 prob_image=segm2image(image,prob_labeled_segments,pix_in_segm);
 imshow(prob_image);
+figure(5);
+hy = fspecial('sobel');
+hx = hy';
+Iy = imfilter(prob_image, hy, 'replicate');
+Ix = imfilter(prob_image, hx, 'replicate');
+gradmag = sqrt(Ix.^2 + Iy.^2);
+image(:,:,1)=image(:,:,1)+gradmag;
+image(:,:,2)=image(:,:,2)+gradmag;
+image(:,:,3)=image(:,:,3)+gradmag;
+imshow(image);
 
 
 

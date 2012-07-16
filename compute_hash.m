@@ -31,6 +31,7 @@ function hash = compute_hash( segm )
             end
         end
     end
+    hash
     compute_hash_time=toc
 end
 

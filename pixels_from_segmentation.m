@@ -18,9 +18,10 @@ function [pix_in_segm, segm_colors, super_image] = pixels_from_segmentation( ima
                 if segmentation(i,j)==current_region,
                     %add up color information
                     a=[image(i,j,1) image(i,j,2) image(i,j,3)];
-                    super_pixel_value(1)=double(super_pixel_value(1)) + double(a(1));
-                    super_pixel_value(2)=double(super_pixel_value(2)) + double(a(2));
-                    super_pixel_value(3)=double(super_pixel_value(3)) + double(a(3));
+                    super_pixel_value=super_pixel_value+a;
+%                     super_pixel_value(1)=double(super_pixel_value(1)) + double(a(1));
+%                     super_pixel_value(2)=double(super_pixel_value(2)) + double(a(2));
+%                     super_pixel_value(3)=double(super_pixel_value(3)) + double(a(3));
                     %create an array of influenced pixel coordinates
                     pixel_coords=[pixel_coords, [i,j]'];
                 end
