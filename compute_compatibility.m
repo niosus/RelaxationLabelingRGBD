@@ -7,7 +7,7 @@ function  compatibility  = compute_compatibility( center, neighbor )
         compatibility=sqrt((center-neighbor).^2);
     end
     %magic weight for compatibility coef
-    weight=20;
+    weight=10;
     %compatibility=2*exp(-compatibility*weight) -1;
     compatibility=exp(-compatibility*weight)
     %sigma=1;
