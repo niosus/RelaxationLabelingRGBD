@@ -19,7 +19,7 @@ prob_labels = make_prob_image(number_of_segments, pix_in_segm);
 imshow(segm2image(image,prob_labels,pix_in_segm));
 
 figure(4);
-max_iter=40
+max_iter=1000
 precision=10^(-6)
 prob_labeled_segments = relaxation_labeling_from_image(segm_colors,prob_labels, max_iter, edges, comp, precision, weights);
 

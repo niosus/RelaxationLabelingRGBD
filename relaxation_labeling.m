@@ -21,17 +21,17 @@ disp('relaxation labeling');
             R=ComputeRi(p(i),comp_coef,1);
             R_t=ComputeRi(1-p(i), comp_coef,0);
             for en=1:M,  
-%                 qi=qi+c(en)*p(edge(en))*comp_coef(en); %same labels of pixels
-%                 qi=qi+c(en)*(1-p(edge(en)))*((-1)*comp_coef(en)); %different labels of pixels
-%                 
-%                 qi_t=qi_t+c(en)*p(edge(en))*((-1)*comp_coef(en)); %different labels of pixels
-%                 qi_t=qi_t+c(en)*(1-p(edge(en)))*comp_coef(en); %same labels of pixels
-            
-              qi=qi+c(en)*p(edge(en))*R(en); %same labels of pixels
-              qi=qi+c(en)*(1-p(edge(en)))*(R_t(en)); %different labels of pixels
-
-              qi_t=qi_t+c(en)*p(edge(en))*(R_t(en)); %different labels of pixels
-              qi_t=qi_t+c(en)*(1-p(edge(en)))*R(en); %same labels of pixels
+                qi=qi+c(en)*p(edge(en))*comp_coef(en); %same labels of pixels
+                qi=qi+c(en)*(1-p(edge(en)))*((-1)*comp_coef(en)); %different labels of pixels
+                
+                qi_t=qi_t+c(en)*p(edge(en))*((-1)*comp_coef(en)); %different labels of pixels
+                qi_t=qi_t+c(en)*(1-p(edge(en)))*comp_coef(en); %same labels of pixels
+%             
+%               qi=qi+c(en)*p(edge(en))*R(en); %same labels of pixels
+%               qi=qi+c(en)*(1-p(edge(en)))*(R_t(en)); %different labels of pixels
+% 
+%               qi_t=qi_t+c(en)*p(edge(en))*(R_t(en)); %different labels of pixels
+%               qi_t=qi_t+c(en)*(1-p(edge(en)))*R(en); %same labels of pixels
             
             end     
             val1 = p(i) * (1+qi);

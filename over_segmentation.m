@@ -17,7 +17,7 @@ function [ segment, pix_in_segm, segm_colors, super_image ] = over_segmentation(
     bw=ones(size(L));
     border=find(L==0);
     bw(border)=0;
-    [~, ind] = bwdist(bw);
+    [a, ind] = bwdist(bw);
     L(border)=L(ind(border));
     %now we have an over segmented image without black border pixels - exactly
     %what was needed.
